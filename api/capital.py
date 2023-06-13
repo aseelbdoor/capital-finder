@@ -42,10 +42,12 @@ class handler(BaseHTTPRequestHandler):
 
     if len(r1)>0 and len(r2)>0:
       final=r1+"\n"+r2
-    elif len(r2)==0:
+    elif len(r2)==0 and len(r1)>0:
       final=r1
-    elif len(r1)==0:
+    elif len(r1)==0 and len(r2)>0:
       final=r2
-  
+    else:
+      final="Welcom"
+      
     self.wfile.write(final.encode())
     return
